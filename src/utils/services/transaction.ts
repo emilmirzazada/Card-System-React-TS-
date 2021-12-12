@@ -1,5 +1,5 @@
 import { Axios } from "../axios";
-import {  ICardRq, IDepositRq } from "../interfaces/models";
+import {  IDepositRq } from "../interfaces/models";
 import { getJWT, getUserId } from './../index';
 
 

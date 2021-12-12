@@ -1,5 +1,5 @@
 import { Axios } from "../axios"
-import { IEditProfileRq, ILoginRq, IRecoverPasswordRq } from './../interfaces/models';
+import { IEditProfileRq } from './../interfaces/models';
 import { getJWT } from './../index';
 
 

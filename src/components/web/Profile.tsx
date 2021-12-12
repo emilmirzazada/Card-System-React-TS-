@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { editProfileService, getUserService } from '../../utils/services/profile'
-import { useLocation } from 'react-router-dom';
 import Modal from './../helpers/Modal/index';
 import Loading from './../helpers/Loading/index';
 import { getUserId } from '../../utils';
@@ -8,7 +7,6 @@ import { getUserId } from '../../utils';
 function Profile() {
 
     const [modalOpen, setModalOpen] = React.useState<boolean>(false)
-    const [disabled, setDisabled] = React.useState<boolean>(false)
 
     const [email, setEmail] = useState<any>('')
     const [firstName, setFirstName] = useState('')

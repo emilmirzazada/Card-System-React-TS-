@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import { recoverPasswordService } from '../../utils/services/auth'
-import { useLocation } from 'react-router-dom';
 import Loading from './../helpers/Loading/index';
 import { addDepositService, getVendors } from '../../utils/services/transaction';
 import { getCards } from '../../utils/services/cards';
@@ -8,7 +6,6 @@ import Modal from './../helpers/Modal/index';
 
 function Deposit() {
     const [modalOpen, setModalOpen] = React.useState<boolean>(false)
-    const [disabled, setDisabled] = React.useState<boolean>(false)
     const [amount, setAmount] = useState<number>(0)
     const [loading, setLoading] = useState<boolean>(false)
     const [errMessage, setErrMessage] = useState('')
@@ -105,9 +102,6 @@ function Deposit() {
         setLoading(true)
         setErrMessage('')
 
-        const selectedCardVal = selectedCard !== -1
-        const selectedVendorVal = selectedVendor !== -1
-
         const amountVal = amount >= 0
 
 
@@ -179,7 +173,7 @@ function Deposit() {
                         </div>
                         {errMessage && <p style={{ color: "red" }}>{errMessage}</p>}
                         <div className="mb-3">
-                            <button type="submit" className="btn btn-success" disabled={disabled}>Submit</button>
+                            <button type="submit" className="btn btn-success">Submit</button>
                         </div>
                     </form>
 

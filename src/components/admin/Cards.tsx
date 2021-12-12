@@ -3,7 +3,6 @@ import Modal from '../helpers/Modal/index';
 import { getStates, getTypes, getCards, addCardService } from '../../utils/services/cards';
 import { CardParams } from '../../utils/interfaces/Params.interface';
 import Loading from '../helpers/Loading/index';
-import { stat } from "fs/promises";
 
 function Cards() {
     const [modalOpen, setModalOpen] = React.useState<boolean>(false)
@@ -133,13 +132,10 @@ function Cards() {
         const selectedTypeVal = selectedState !== -1
         const selectedValidtyVal = selectedValidity !== -1
 
-        const typeVal = selectedType
-        const validVal = selectedValidity
         const expirationDateVal = expirationDate
 
         var curr = new Date();
         curr.setDate(curr.getDate());
-        var defaultDate = curr.toISOString().substr(0,10);
 
         if (numberVal && cvvVal  && selectedStateVal && selectedTypeVal &&selectedValidtyVal && expirationDateVal) {
             addCardService({ numberVal, cvvVal,validVal:selectedValidity,stateVal: selectedState,typeVal: selectedType,

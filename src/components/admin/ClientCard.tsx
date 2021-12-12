@@ -3,7 +3,7 @@ import Modal from './../helpers/Modal/index';
 import {
     addAccountService,
     getAllClientCards,
-    getCards, getClientCards,/* , addAccountService */
+    getCards,
     getUsers
 } from './../../utils/services/client_cards';
 import Loading from './../helpers/Loading/index';

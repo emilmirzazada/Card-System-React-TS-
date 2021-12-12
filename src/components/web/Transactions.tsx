@@ -1,7 +1,5 @@
 import React from "react"
-import Modal from './../helpers/Modal/index';
-import { getAccounts, addAccountService } from './../../utils/services/accounts';
-import { AccountParams, TransactionParams } from './../../utils/interfaces/Params.interface';
+import { TransactionParams } from './../../utils/interfaces/Params.interface';
 import Loading from './../helpers/Loading/index';
 import { getTransactions } from "../../utils/services/transaction";
 import { getUserId } from "../../utils";
@@ -9,7 +7,6 @@ import { getUserId } from "../../utils";
 function Transactions() {
     const [loading, setLoading] = React.useState(true);
     const [transactions, setTransactions] = React.useState([]);
-    const [disabled, setDisabled] = React.useState<boolean>(false)
 
     React.useEffect(() => {
         fetchData()
