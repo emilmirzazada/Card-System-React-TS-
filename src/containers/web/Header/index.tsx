@@ -36,7 +36,7 @@ function Header() {
                                     to="client_cards"
                                     className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
                                 >
-                                    Client Cards
+                                    My Cards
                                 </NavLink>
                             </li>
                             <li className="nav-item">

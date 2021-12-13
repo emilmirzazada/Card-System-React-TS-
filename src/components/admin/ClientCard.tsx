@@ -147,6 +147,10 @@ function ClientCard() {
                         setSelectedCard(-1)
                         setDisabled(false)
 
+                        setUsers([]);
+                        setAccounts([]);
+                        setCards([]);
+
                         closeModal()
                         fetchData()
                     }
@@ -194,7 +198,6 @@ function ClientCard() {
             {modalOpen &&
                 <Modal onClose={closeModal}>
                     <form onSubmit={handleSubmit}>
-                        <h3 className="mb-3 text-danger">One account number can only have one card</h3>
                         <div className="mb-3">
                             <label className="me-3">Client</label>
 

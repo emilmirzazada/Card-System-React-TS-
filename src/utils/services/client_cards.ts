@@ -9,7 +9,7 @@ export const getAllClientCards = async () => {
 };
 
 export const getClientCards = async (userId:any) => {
-    const resp = await Axios.get('ClientCard', getJWT());
+    const resp = await Axios.get(`ClientCard?userId=${userId}`, getJWT());
 
     return resp
 };
