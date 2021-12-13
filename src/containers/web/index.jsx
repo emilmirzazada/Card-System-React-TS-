@@ -10,6 +10,7 @@ import NotFound from '../../components/web/NotFound';
 import { RequireAuth } from '../../utils/ProtectRoute';
 import { NotRequireAuth } from '../../utils/ProtectRoute';
 import Layout from './Layout';
+import Withdraw from '../../components/web/Withdraw';
 
 function index() {
     return (
@@ -19,6 +20,7 @@ function index() {
                 <Route path="*" element={<NotFound />} />
                 <Route element={<RequireAuth />}>
                     <Route path="/deposit" element={<Deposit />} />
+                    <Route path="/withdraw" element={<Withdraw />} />
                     <Route path="/transactions" element={<Transactions />} />
                     <Route path="/profile" element={<Profile />} />
                     <Route path="/client_cards" element={<ClientCards />} />

@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import Loading from './../helpers/Loading/index';
-import { addDepositService, getCards, getVendors } from '../../utils/services/transaction';
+import { addDepositService, getCards, getVendors, withdrawService } from '../../utils/services/transaction';
 import Modal from './../helpers/Modal/index';
 import { getUserId } from '../../utils';
 
-function Deposit() {
+function Withdraw() {
     const [modalOpen, setModalOpen] = React.useState<boolean>(false)
     const [amount, setAmount] = useState<number>(0)
     const [loading, setLoading] = useState<boolean>(false)
@@ -106,7 +106,7 @@ function Deposit() {
 
 
         if (amountVal && selectedCard && selectedVendor) {
-            addDepositService({ cardVal: selectedCard, vendorVal: selectedVendor, amount: amount })
+            withdrawService({ cardVal: selectedCard, vendorVal: selectedVendor, amount: amount })
                 .then(resp => {
                     if (resp.status === 200) {
 
@@ -129,7 +129,7 @@ function Deposit() {
             <section>
                 <div className="img-container">
                     <div className="link text-center">
-                        <button type="button" className="btn btn-success m-2" onClick={openModal}>Add deposit to your card</button>
+                        <button type="button" className="btn btn-success m-2" onClick={openModal}>Withdraw money from your card</button>
                     </div>
                     <img src="/img/bg.jpg" alt="img-container" />
                 </div>
@@ -185,4 +185,4 @@ function Deposit() {
     )
 }
 
-export default Deposit
+export default Withdraw
