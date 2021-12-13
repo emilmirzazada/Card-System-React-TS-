@@ -49,6 +49,14 @@ function Header() {
                             </li>
                             <li className="nav-item">
                                 <NavLink
+                                    to="/withdraw"
+                                    className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+                                >
+                                    Withdraw
+                                </NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink
                                     to="/mytransactions"
                                     className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
                                 >

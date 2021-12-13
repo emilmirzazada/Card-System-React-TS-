@@ -44,6 +44,13 @@ export interface IDepositRq {
 
 }
 
+export interface IWithdrawRq {
+    cardVal:number,
+    vendorVal: number,
+    amount: number,
+
+}
+
 export interface IClientCardRq {
     clientId: string;
     accountId: number,

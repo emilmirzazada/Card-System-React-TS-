@@ -3,7 +3,7 @@ import {  ICardRq } from "../interfaces/models";
 import { getJWT } from './../index';
 
 export const getCards = async () => {
-    const resp = await Axios.get('Card', getJWT());
+    const resp = await Axios.get('Card/?flag=2', getJWT());
 
     return resp
 };
