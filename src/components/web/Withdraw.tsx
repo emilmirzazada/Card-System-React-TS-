@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Loading from './../helpers/Loading/index';
-import { addDepositService, getCards, getVendors, withdrawService } from '../../utils/services/transaction';
+import { getCards, getVendors, withdrawService } from '../../utils/services/transaction';
 import Modal from './../helpers/Modal/index';
 import { getUserId } from '../../utils';
 
