@@ -2,12 +2,12 @@ import React from "react"
 import Modal from './../helpers/Modal/index';
 import {
     addAccountService,
+    getAccounts,
     getAllClientCards,
     getCards,
     getUsers
 } from './../../utils/services/client_cards';
 import Loading from './../helpers/Loading/index';
-import { getAccounts } from './../../utils/services/accounts';
 
 function ClientCard() {
     const [modalOpen, setModalOpen] = React.useState<boolean>(false)
@@ -173,9 +173,10 @@ function ClientCard() {
             <table className="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">Client Id</th>
+                        <th scope="col">Client</th>
                         <th scope="col">Account Number</th>
                         <th scope="col">Card Number</th>
+                        <th scope="col">Balance</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -186,6 +187,7 @@ function ClientCard() {
                                     <th scope="row">{clientCard.client.userName}</th>
                                     <td>{clientCard.account.accountNumber}</td>
                                     <td>{clientCard.card.number}</td>
+                                    <td>{clientCard.account.balance}</td>
                                 </tr>
                             )}
                         </>

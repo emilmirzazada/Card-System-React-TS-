@@ -187,8 +187,8 @@ function Cards() {
                                 <tr key={index}>
                                     <td >{card.number}</td>
                                     <td >{card.cvv}</td>
-                                    <td>{card.dateRegistered}</td>
-                                    <td>{card.expirationDate}</td>
+                                    <td>{new Date(card.dateRegistered).toISOString().substring(0, 10)}</td>
+                                    <td>{new Date(card.expirationDate).toISOString().substring(0, 10)}</td>
                                     <td>{card.valid?'true':'false'}</td>
                                     <td>{card.stateName}</td>
                                     <td>{card.typeName}</td>

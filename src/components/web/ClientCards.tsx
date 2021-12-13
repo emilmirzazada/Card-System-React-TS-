@@ -58,6 +58,7 @@ function ClientCards() {
                             <th scope="col">Username</th>
                             <th scope="col">Account number</th>
                             <th scope="col">Card number</th>
+                            <th scope="col">Balance</th>
                             <th scope="col">Go to Card</th>
                         </tr>
                     </thead>
@@ -67,6 +68,7 @@ function ClientCards() {
                                 <th scope="row">{clientCard.client.userName}</th>
                                 <td>{clientCard.account.accountNumber}</td>
                                 <td>{clientCard.card.number}</td>
+                                <td>{clientCard.account.balance}</td>
                                 <td><button type="button" onClick={() => handleSelectCard(clientCard.cardId)}>Card</button></td>
                             </tr>
                         )}

@@ -128,8 +128,8 @@ function Users() {
                                     <td>{user.firstName}</td>
                                     <td>{user.lastName}</td>
                                     <td>{user.email}</td>
-                                    <td>{user.lastLoginTime}</td>
-                                    <td>{user.lastPasswordChangeDate}</td>
+                                    <td>{new Date(user.lastLoginTime).toISOString().substring(0, 10)}</td>
+                                    <td>{new Date(user.lastPasswordChangeDate).toISOString().substring(0, 10)}</td>
                                 </tr>
                             )}
                         </>

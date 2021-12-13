@@ -52,7 +52,7 @@ function Transactions() {
                                     <td>{transaction.card.number}</td>
                                     <td>{transaction.amount}</td>
                                     <td>{transaction.vendor.name}</td>
-                                    <td>{transaction.createdAt}</td>
+                                    <td>{new Date(transaction.createdAt).toISOString().substring(0, 10)}</td>
                                     <td>{transaction.typeName}</td>
                                     <td>{transaction.statusName}</td>
                                 </tr>

@@ -21,13 +21,13 @@ export const getClientCard = async (id: number) => {
 };
 
 export const getCards = async () => {
-    const resp = await Axios.get('Card', getJWT());
+    const resp = await Axios.get('Card?flag=1', getJWT());
 
     return resp
 };
 
 export const getAccounts = async () => {
-    const resp = await Axios.get('Account', getJWT());
+    const resp = await Axios.get('Account?flag=1', getJWT());
 
     return resp
 };
