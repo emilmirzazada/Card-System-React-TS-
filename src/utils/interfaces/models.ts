@@ -31,7 +31,6 @@ export interface ICardRq {
     numberVal: string,
     cvvVal: string,
     validVal:number,
-    stateVal: number,
     typeVal: number,
     expirationDateVal: Date
 

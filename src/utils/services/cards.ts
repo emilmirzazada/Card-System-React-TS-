@@ -3,7 +3,7 @@ import {  ICardRq } from "../interfaces/models";
 import { getJWT } from './../index';
 
 export const getCards = async () => {
-    const resp = await Axios.get('Card/?flag=2', getJWT());
+    const resp = await Axios.get('Card?flag=2', getJWT());
 
     return resp
 };
@@ -22,14 +22,13 @@ export const getStates = async () => {
 };
 
 
-export const addCardService = ({ numberVal, cvvVal,validVal,stateVal,typeVal,
+export const addCardService = ({ numberVal, cvvVal,validVal,typeVal,
     expirationDateVal}: ICardRq) => {
     return Axios.post(`Card`,
         {
             number: numberVal,
             cvv: cvvVal,
             valid: validVal,
-            state: stateVal,
             type: typeVal,
             expirationDate: expirationDateVal
         },

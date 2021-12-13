@@ -1,6 +1,6 @@
 import React from "react"
 import Modal from '../helpers/Modal/index';
-import { getStates, getTypes, getCards, addCardService } from '../../utils/services/cards';
+import { getTypes, getCards, addCardService } from '../../utils/services/cards';
 import { CardParams } from '../../utils/interfaces/Params.interface';
 import Loading from '../helpers/Loading/index';
 
@@ -9,11 +9,9 @@ function Cards() {
     const [loading, setLoading] = React.useState(true);
     const [cards, setCards] = React.useState([]);
     const [types, setTypes] = React.useState([]);
-    const [states, setStates] = React.useState([]);
     const [disabled, setDisabled] = React.useState<boolean>(false)
     const [number, setNumber] = React.useState('')
     const [cvv, setCvv] = React.useState('')
-    const [selectedState, setSelectedState] = React.useState<number>(-1);
     const [selectedType, setSelectedType] = React.useState<number>(-1);
     const [selectedValidity, setSelectedValidty] = React.useState<number>(-1);
     const [expirationDate, setExpirationDate] = React.useState<Date>();
@@ -53,28 +51,12 @@ function Cards() {
         }
     }
 
-    const fetchStates = async () => {
-
-        try {
-            const { data, status } = await getStates()
-            if (status === 200) {
-                setStates(data)
-            }
-        } catch (error) {
-            console.log(error)
-        } finally {
-            //setLoadingUsers(false)
-        }
-    }
 
     const openModal = () => {
         setModalOpen(true)
 
         if (!types.length) fetchTypes()
-        if (!states.length) fetchStates()
 
-        console.log(types)
-        console.log(states)
     }
 
     const closeModal = () => {
@@ -106,9 +88,6 @@ function Cards() {
         const value = e.target.value
 
         switch (name) {
-            case 'state':
-                setSelectedState(+value)
-                break;
             case 'type':
                 setSelectedType(+value)
                 break;
@@ -128,8 +107,7 @@ function Cards() {
         const numberVal = number.trim()
         const cvvVal = cvv.trim() 
         
-        const selectedStateVal = selectedState !== -1
-        const selectedTypeVal = selectedState !== -1
+        const selectedTypeVal = selectedType !== -1
         const selectedValidtyVal = selectedValidity !== -1
 
         const expirationDateVal = expirationDate
@@ -137,14 +115,13 @@ function Cards() {
         var curr = new Date();
         curr.setDate(curr.getDate());
 
-        if (numberVal && cvvVal  && selectedStateVal && selectedTypeVal &&selectedValidtyVal && expirationDateVal) {
-            addCardService({ numberVal, cvvVal,validVal:selectedValidity,stateVal: selectedState,typeVal: selectedType,
+        if (numberVal && cvvVal && selectedTypeVal &&selectedValidtyVal && expirationDateVal) {
+            addCardService({ numberVal, cvvVal,validVal:selectedValidity,typeVal: selectedType,
                 expirationDateVal})
                 .then(resp => {
                     if (resp.status === 200) {
                         setNumber('')
                         setCvv('')
-                        setSelectedState(-1)
                         setSelectedType(-1)
                         setSelectedValidty(-1)
                         setExpirationDate(curr)
@@ -228,15 +205,7 @@ function Cards() {
 
                         </select>
                         </div>
-                        <div className="mb-3">
-                        <label className="mb-">State Name</label>
-                        <select name={'state'} value={selectedState} onChange={handleSelectChange}>
-                        <option value={-1}>select</option>
-                            {states.map((item,index) => {
-                                return (<option value={index}>{item}</option>);
-                            })}
-                        </select>
-                        </div>
+                        
                         <div className="mb-3">
                         <label className="mb-">Type Name</label>
                         <select name={'type'} value={selectedType} onChange={handleSelectChange}>
