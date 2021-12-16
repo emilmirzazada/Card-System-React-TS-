@@ -1,12 +1,12 @@
-export const getAccessToken = () => localStorage.getItem('token')
+export const getAccessToken = () => localStorage.getItem('jwtToken')
 export const getRefreshToken = () => localStorage.getItem('refreshToken')
 export const getUserId = () => localStorage.getItem('userId');
 
-export const setAccessToken = (val: string) => localStorage.setItem('token', val)
+export const setAccessToken = (val: string) => localStorage.setItem('jwtToken', val)
 export const setRefreshToken = (val: string) => localStorage.setItem('refreshToken', val)
 export const setUserId = (val: string) => localStorage.setItem('userId', val)
 
-export const removeAccessToken = () => localStorage.removeItem('token')
+export const removeAccessToken = () => localStorage.removeItem('jwtToken')
 export const removeRefreshToken = () => localStorage.removeItem('refreshToken')
 export const removeUserId = () => localStorage.removeItem('userId')
 
